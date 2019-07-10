@@ -75,9 +75,8 @@ body {
 }
 
 .posts{
-	position:fixed;
-	padding-left:5vw;
-	float:left;
+	display:inline-block;
+	text-indent:5vw;
 	width:100%;
 	background-color:#FFFFFF;
 
