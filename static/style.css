@@ -75,7 +75,8 @@ body {
 }
 
 .posts{
-	padding-left:10vw;
+	position:fixed;
+	padding-left:5vw;
 	float:left;
 	width:100%;
 	background-color:#FFFFFF;
