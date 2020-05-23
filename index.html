@@ -4,17 +4,17 @@
 	<meta charset = "UTF-8">
 	<link rel = "stylesheet"
 	type = "text/CSS"
-	href = "static/style.css"/>
+	href = "static/homestyle.css"/>
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<title> William's blog</title>
+	<title> William Lin</title>
 </head>
 
-<body>
-	<div class = "main">
+<header>
+	<div class = "container">
 
 		<nav class = "nav" id = "myNav">
-			<a href="https://williamlin1.github.io"> Home </a></li>
-			<a href="https://williamlin1.github.io/templates/about.html"> About Me </a></li>
+			<a id = "name" href="https://williamlin1.github.io"> William Lin </a></li>
+			<a href="https://williamlin1.github.io#about" onclick="myFunction()"> About Me </a></li>
 			<a href="https://williamlin1.github.io/templates/blog.html"> Blog </a></li>
 			<a href="https://williamlin1.github.io/static/Resume.pdf"> Resume </a></li>
 			<a href="https://williamlin1.github.io/templates/contact.html"> Contact </a></li>
@@ -22,28 +22,66 @@
     			<i class="fa fa-bars"></i>
   			</a>
 		</div>
+</header>
 
+
+<body>
+	<div id = "profile">
+		<div class = "portrait">
+			<img id = "me" src = "static/meimg.jpg" width = "300px" height = "362px">
+			<h2> William Lin </h2>
+			<h3>  UC Berkeley EECS </h3>
+		</div>
+		<div id = "about">
+			<p> About Me!</p>
+			<p> I am a Sophomore Electrical Engineering and Computer Sciences student at UC Berkeley </p>
+			<p> Teaching Experience </p>
+			<p> Summer 2020: Reader for CS 70 <br/> Summer 2018: Tutor for SAT Math <br/>
+				Fall 2018 - Spring 2019: Java Programming for programming club
+			<br/> Fall 2016- Spring 2019 Java Programming for robotics team</p>
+
+		</div>
 	</div>
 
 	<div class = "centerDiv">
 		<div class = "miniCen">
-			<h2> Computer Science, Robotics, AI</h2>
-			<p> I'm William Lin and I'm a freshman Electrical Engineering and Computer Sciences student at UC Berkeley. I am new to making websites, but am looking for an internship.</p>
+			<h2> Interests</h2>
+			<p> I am currently taking classes in machine learning and algorithms. I think I will take more classes in EE and controls theory and expand my knowledge there.</p>
+		</div>
+	</div>
+
+	<div id = "coursework">
+		<div class = "miniCen">
+		<h2> Coursework </h2>
+		<p> I have taken so far: </p>
+		<ul>
+			<li>CS 61A: Structure and Interpretations of Computer Programs</li>
+			<li>CS 61B: Data Structures</li>
+			<li>CS 70: Discrete Mathematics and Probability Theory</li>
+			<li>CS 170: Efficient Algorithms and Intractable Problems</li>
+			<li>CS 189: Introduction to Machine Learning</li>
+			<li>EE 16A: Designing Information Devices and Systems 1</li>
+
+		</ul>
 		</div>
 	</div>
 
 	<div class = "posts">
 
 		<h2> Blog and Project Updates </h2>
+		<p> Nothing here for now, but will do later </p>
+
+
+
 
 	</div>
 
 	<div class = "footer">
 		<ul>
-			<li><a href = "#"><i class = "fa fa-facebook" aria-hidden="true"></i></a></li>
-			<li><a href = "#"><i class = "fa fa-twitter" aria-hidden="true"></i></a></li>
-			<li><a href = "#"><i class = "fa fa-linkedin" aria-hidden="true"></i></a></li>
-			<li><a href = "#"><i class = "fa fa-instagram" aria-hidden="true"></i></a></li>
+			<li><a href = "https://www.facebook.com/CatTheTurtle/" target="_blank"><i class = "fa fa-facebook" aria-hidden="true"></i></a></li>
+			<li><a href = "#" target="_blank"><i class = "fa fa-twitter" aria-hidden="true"></i></a></li>
+			<li><a href = "https://www.linkedin.com/in/lin-william/" target="_blank"><i class = "fa fa-linkedin" aria-hidden="true"></i></a></li>
+			<li><a href = "#" target="_blank"><i class = "fa fa-instagram" aria-hidden="true"></i></a></li>
 		</ul>
 	</div>
 
