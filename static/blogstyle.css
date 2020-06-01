@@ -77,8 +77,8 @@ body {
 	text-align: center;
 	padding-top:0;
 	padding-bottom:0;
-	padding-right:10vw;
-	padding-left:10vw;
+	padding-right:20vw;
+	padding-left:20vw;
 	margin:0;
 }
 
@@ -98,6 +98,14 @@ body {
 	font-size: 20;
 }
 
+.rm {
+  float: left;
+  text-decoration: none;
+  font-size: 20;
+}
+.date {
+  float: right;
+}
 /* Footer stuff, do not change*/
 
 .footer{
