@@ -65,27 +65,6 @@ body {
 	display: block;
 }
 
-#profile {
-	background-color: #FFFFFF;
-  text-align: center;
-  padding: 30px 10px;
-	overflow: auto;
-}
-
-#profile .me {
-  margin: 0 auto;
-  border-radius: 5%;
-  background-size: cover;
-}
-
-#about p{
-	font-size: 20px;
-}
-
-#about ul{
-	float: left;
-}
-
 .centerDiv{
 	float:left;
 	background-color:#F0F0F0;
@@ -119,29 +98,7 @@ body {
 	font-size: 20;
 }
 
-#coursework{
-	float:left;
-	background-color:#FFFFFF;
-	width: 100%;
-	margin:0!important;
-	padding:50 0;
-}
-
-.posts{
-	display:inline-block;
-	text-indent:5vw;
-	width:100%;
-	background-color:#F0F0F0;
-
-}
-
-
-
-
-
-/*
-Begins the footer section with the items
-*/
+/* Footer stuff, do not change*/
 
 .footer{
 	float:left;
@@ -181,8 +138,6 @@ Begins the footer section with the items
 	transition: .5s;
 }
 
-
-
 .footer ul li a i{
 	line-height: 50px;
 }
@@ -219,17 +174,6 @@ Begins the footer section with the items
 }
 .footer ul li:nth-child(4) a:before{
 	background: rgba(255, 220, 125,0.8)
-}
-
-@media screen and (min-width: 850px) {
-  .portrait {
-		padding: 20px 5%;
-		background-color: #FFFFFF;
-		float: left;
-	}
-	#about p{
-		font-size: 25px;
-	}
 }
 
 
