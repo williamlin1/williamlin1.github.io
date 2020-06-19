@@ -138,6 +138,13 @@ body {
 
 }
 
+#blog{
+	float:left;
+	background-color:#FFFFFF;
+	width: 100%;
+	margin:0!important;
+	padding:50 0;
+}
 
 
 
@@ -149,7 +156,7 @@ Begins the footer section with the items
 .footer{
 	float:left;
 	width:100%;
-	background-color:#FFFFFF;
+	background-color:#F0F0F0;
   height:50;
 	padding: 10px 0px;
 }
