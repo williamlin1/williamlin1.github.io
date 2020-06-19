@@ -11,9 +11,10 @@
 }
 
 .container {
+	background-color: white;
 	width: 80%
 	margin: 0 auto;
-	height: 60px;
+	height: 59px;
 }
 
 h1{
@@ -24,14 +25,14 @@ nav{
 	display:block;
 	width:100%;
 	position: fixed;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,240,240,0.5);
 	overflow: hidden;
 }
 
 .nav a {
   float: right;
   display: block;
-  color: #f2f2f2;
+  color: #000000;
   text-align: center;
   padding: 14px 20px;
   text-decoration: none;
@@ -43,7 +44,7 @@ nav{
 }
 /* Change the color of links on hover */
 .nav a:hover {
-  background-color: #ddd;
+	background-color: rgba(255,255,255,0.5);
   color: black;
 }
 
@@ -59,7 +60,7 @@ nav{
 }
 
 body {
-	background-color: #1a1f4a;
+	background-color: #33cccc;
 	margin: 0 !important;
 	padding:0 !important;
 	display: block;
@@ -77,6 +78,8 @@ body {
   border-radius: 5%;
   background-size: cover;
 }
+
+
 
 #about p{
 	font-size: 20px;
@@ -218,13 +221,12 @@ Begins the footer section with the items
 	background: rgba(00,119,181,0.8);
 }
 .footer ul li:nth-child(4) a:before{
-	background: rgba(255, 220, 125,0.8)
+	background: rgba(255, 220, 125,0.8);
 }
 
 @media screen and (min-width: 850px) {
   .portrait {
 		padding: 20px 5%;
-		background-color: #FFFFFF;
 		float: left;
 	}
 	#about p{
