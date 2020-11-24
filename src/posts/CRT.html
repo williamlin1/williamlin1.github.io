@@ -1,0 +1,159 @@
+<!DOCTYPE html5>
+<html lang = "en-US">
+<head>
+	<meta charset = "UTF-8">
+	<link rel = "stylesheet"
+	type = "text/CSS"
+	href = "poststyle.css"/>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  <title> William Lin</title>
+</head>
+
+<header>
+	<div class = "container">
+
+		<nav class = "nav" id = "myNav">
+			<a id = "name" href="https://williamlin1.github.io"> William Lin </a></li>
+			<a href="https://williamlin1.github.io#about" onclick="myFunction()"> About Me </a></li>
+			<a href="https://williamlin1.github.io/templates/blog.html"> Blog </a></li>
+			<a href="https://williamlin1.github.io/static/Resume.pdf"> Resume </a></li>
+			<a href="https://williamlin1.github.io/templates/contact.html"> Contact </a></li>
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    			<i class="fa fa-bars"></i>
+  			</a>
+		</div>
+</header>
+
+
+<body>
+	<div class = "centerDiv">
+		<div class = "miniCen">
+			<h2>The Chinese Remainder Theorem</h2>
+      <p> &emsp; I want to cover the Chinese Remainder Theorem in this post because I feel it is the
+        one topic that a lot of students have trouble with in CS 70. It's a lot more clean and understandable
+        than I think most students find it to be, so I want to make it more intuitive for students,
+        and help them understand what's going on underneath.</p>
+        <hr>
+      <h4> So what is the Chinese Remainder Theorem? </h4>
+      <p> &emsp; The Chinese Remainder Theorem is a theorem that states that given a set of modular arithmetic
+        equations
+        $$x \equiv a_1 (\bmod n_1),  x \equiv a_2 (\bmod n_2) \:...\:  x \equiv a_k (\bmod n_k) $$
+        such that all \(n_i\) are relatively prime, there exists a unique solution \(\bmod N\),
+        $$x \equiv (\sum_{i=1}^k a_ib_i) \bmod N$$
+        Where \(b_i = \frac{N}{n_i}(\frac{N}{n_i}^{-1}_{n_i})\), N is \(\prod_{i=1}^k n_i\)and \(\frac{N}{n_i}^{-1}_{n_i}\) is the
+        multiplicative inverse (mod \(n_i\)) of the integer \(\frac{N}{n_i}\). Note that \(\frac{N}{n_i}\) is necessarily
+        an integer because N is the product of all of the \(n_i\).</p>
+        <hr>
+      <h4> Ok, so what does that really mean </h4>
+      <p> &emsp; I just gave the definition from the current edition of the notes of CS 70 Fall 2020.
+        As you can see, they define the inverses, and put a sum together. It's a bit difficult to
+        read and really understand what's going on there. Why is there a sum in the first place, and why
+        do we need an inverse? It's a bit unclear. </p>
+      <p> &emsp; Let's break this down part by part. We take the \(\bmod N\) at the end because we want to restrict x to
+        values in \(\bmod N\). So now we need to look at the sum.
+        $$x = a_1b_1 + a_2b_2 + ... + a_kb_k$$
+        I left \(b_i\) in that form so we can derive what \(b_i\) means from the ground up.
+        Looking at this, we only have an \(a_i\) in one part of the sum, i.e. the \(a_i\) or \(b_i\) never appear twice.
+        This might give us the intuition that we are looking at one equation at this time, so every part of the sum
+        does the work for one equation. So, what work are we trying to do?
+      </p>
+      <br>
+
+      <p> &emsp;
+        Lets start off with
+        $$x = a_1 + a_2 + a_3 + ... + a_k$$
+        We want when \(x\) is taken \(\bmod n_1\), we want it to return the value \(a_1\). Thus from the perspective of
+        the other parts of the sum we want them to be 0. We can do this by multiplying all of the others by \(n_i\).
+        This gives us
+        $$x = a_1 + a_2n_1 + a_3n_1 + ... + a_kn_1$$
+        But we don't just want this for \(a_1\), we want this for every A. Thus we would get
+        $$x = a_1(n_2*n_3*n_4...) + a_2(n_1*n_3*n_4...) + ... + a_k(n_1*n_2*n_3...)$$
+        But because we know \(N\) is defined as the product of all of the \(n_i\), and for every \(a_j\) we want to multiply
+        by every \(n_i\) apart from \(n_j\), we would get \(\frac{N}{n_i}\).
+        Thus we get
+        $$x = a_1\frac{N}{n_1}+a_2\frac{N}{n_2}+a_3\frac{N}{n_3} + ... + a_k\frac{N}{n_k}$$
+      </p>
+      <br>
+      <p> &emsp;
+        This has let us isolate every equation into a single statement in the sum. But wait, doesn't \(\frac{N}{n_i}\)
+        multiply the value of \(a_i\)? Yes it does! This is why we need to also multiply by the inverse of \(\frac{N}{n_i}\)
+        \(\bmod n_i\). This gives us
+        $$x = a_1\frac{N}{n_1}(\frac{N}{n_1}^{-1}_{n_i})+a_2\frac{N}{n_2}(\frac{N}{n_2}^{-1}_{n_2}) + ... + a_k\frac{N}{n_k}(\frac{N}{n_k}^{-1}_{n_k})$$
+        Thus when we take \(\bmod n_i\), \(\frac{N}{n_i}(\frac{N}{n_1}^{-1}_{n_i})\) is equal to 1,
+        because we multiply a value by its inverse. And because it's just multiplication by a constant,
+        our part is still 0 when \(\bmod n_i\) for any other \(n_i\). Isn't that pretty beautiful?
+        Just to show,
+        $$x \equiv a_1\frac{N}{n_1}(\frac{N}{n_1}^{-1}_{n_i})+ 0 + ... + 0 \equiv a_1 \ \ (\bmod n_1)$$
+        $$x \equiv 0 + a_2\frac{N}{n_2}(\frac{N}{n_2}^{-1}_{n_2}) + ... + 0 \equiv a_2 \ \ (\bmod n_2)$$
+        $$x \equiv 0 + 0 + ... + a_k\frac{N}{n_k}(\frac{N}{n_k}^{-1}_{n_k}) \equiv a_k \ \ (\bmod n_k)$$
+
+        <hr>
+
+      <h4> Walkthrough through a simple problem </h4>
+
+			<p> &emsp;	I'll pick some random numbers for the n, 7, 11, 17. Note that they don't all have to be prime, they just all need to be
+        relatively prime. We'll have \(a_1 = 6\), \(a2 = 10\), \(a_1 = 12\) .
+        Thus we have
+        $$x = 6 \bmod 7$$
+        $$x = 10 \bmod 11$$
+        $$x = 12 \bmod 17$$
+        Then we know that N is 7*11*17 = 1309. \(\frac{N}{n_1} = 187\), \(\frac{N}{n_2} = 119\), \(\frac{N}{n_3} = 77\). For now I'll use
+        a computer to find inverses, but I'll outline a cool way in another blog post.
+        $$(\frac{N}{n_1}^{-1}_{n_1}) = (187^{-1}_{7}) = 3$$
+        $$(\frac{N}{n_1}^{-1}_{n_1}) = (119^{-1}_{11}) = 5$$
+        $$(\frac{N}{n_1}^{-1}_{n_1}) = (77^{-1}_{17}) = 2$$
+        Then we can say
+        $$x = a_1\frac{N}{n_1}(\frac{N}{n_1}^{-1}_{n_i})+a_2\frac{N}{n_2}(\frac{N}{n_2}^{-1}_{n_2}) + a_3\frac{N}{n_3}(\frac{N}{n_3}^{-1}_{n_3})$$
+        So finally,
+        $$x = 6*187*3 + 10*119*5 + 12*77*2 = 11164 \equiv 692 \bmod 1309$$
+        As a final check,
+        $$692 \bmod 7 \equiv 6 $$
+        $$692 \bmod 11 \equiv 10 $$
+        $$692 \bmod 17 \equiv 12 $$
+        Thus, we have found the unique value \(\bmod 1309 \) fitting the equations.
+        </p>
+        <hr>
+			<h4> Connection to polynomial interpolation </h4>
+      <p> &emsp; Polynomial interpolation is a method to generate a polynomial passing through k points. Given
+        $$(x_1,y_1),(x_2,y_2),...,(x_n,y_n)$$
+        We can construct a polynomial of degree \(n-1\) that goes through each of these points. The way to do so
+        is almost exactly the same as the Chinese remainder theorem except with polynomials.
+        Instead of multiplying by \(n_i\) in order to reduce the others to 0, we can multiply by \((x-x_i)\).
+        This will give us a value of 0 at every other point, and a nonzero-value at ours. To make it 1, we then
+        divide by \((x_i - x_j)\) Where j takes on all values apart from \(i\), and \(i\) is the current
+        part of the equation we are looking at. Then we just multiply by \(y_i\). Try it yourself, and see if
+        you get a polynomial that passes through all of these points!
+        </p>
+      <hr>
+      <h4> Ending thoughts </h4>
+      <p> &emsp; I hope you found this small writeup entertaining, and I hope you learned something. I didn't go
+        into some of the ideas behind it too deeply, such as why all \(n_i\) have to be relatively prime, but you
+        can see that by the fact that an inverse must exist for each \(n_i\) for \(\frac{N}{n_i}\). I'll maybe
+        try to go into finding inverses in the next writeup if I end up writing more, or maybe a different topic.
+        Thanks for reading!
+        </p>
+      <h4 class = "date"> 11/23/2020 </h4>
+
+    </div>
+	</div>
+
+
+
+	<div class = "footer">
+		<ul>
+			<li><a href = "https://www.facebook.com/CatTheTurtle/" target="_blank"><i class = "fa fa-facebook" aria-hidden="true"></i></a></li>
+			<li><a href = "#" target="_blank"><i class = "fa fa-twitter" aria-hidden="true"></i></a></li>
+			<li><a href = "https://www.linkedin.com/in/lin-william/" target="_blank"><i class = "fa fa-linkedin" aria-hidden="true"></i></a></li>
+			<li><a href = "#" target="_blank"><i class = "fa fa-instagram" aria-hidden="true"></i></a></li>
+		</ul>
+	</div>
+
+<!-- jQuery -->
+<script src="../../js/jquery.js"></script>
+<script src="../../js/hamburger.js"></script>
+<script src="https://use.fontawesome.com/df567ab86f.js"></script>
+</body>
+</html>

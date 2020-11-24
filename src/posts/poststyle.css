@@ -77,8 +77,8 @@ body {
 	text-align: left;
 	padding-top:0;
 	padding-bottom:0;
-	padding-right:20vw;
-	padding-left:20vw;
+	padding-right:12vw;
+	padding-left:12vw;
 	margin:0;
 }
 
@@ -87,8 +87,13 @@ body {
 	font-size: 30;
 }
 
+.miniCen h4 {
+	text-align: center;
+	font-size: 25;
+}
+
 .miniCen p{
-	font-size: 22;
+	font-size: 20;
 }
 
 .miniCen ul{
