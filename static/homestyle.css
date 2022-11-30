@@ -25,7 +25,6 @@ nav{
 	display:block;
 	width:100%;
 	position: fixed;
-	background-color: rgba(0,240,240,0.5);
 	overflow: hidden;
 }
 
@@ -60,7 +59,6 @@ nav{
 }
 
 body {
-	background-color: #33cccc;
 	margin: 0 !important;
 	padding:0 !important;
 	display: block;
